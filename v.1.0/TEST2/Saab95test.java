@@ -115,11 +115,11 @@ public class Saab95test {
     public void Saab95_set_turbo () {
         Saab95 car = new Saab95();
         car.setTurboOn();
-        boolean on_or_off = car.turboOn;
+        boolean on_or_off = car.getTurboOn();
         assertEquals(true, on_or_off);
 
         car.setTurboOff();
-        boolean off_or_on = car.turboOn;
+        boolean off_or_on = car.getTurboOn();
         assertEquals(false, off_or_on);
     }
 }

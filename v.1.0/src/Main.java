@@ -21,11 +21,16 @@ public class Main {
         car.gas(0.5);
         System.out.println("Current speed: " + car.getCurrentSpeed());*/
 
-        car.startEngine();
-        car.move();
-        car.turnLeft();
-        car.turnLeft();
-        car.turnRight();
+        Scania truck = new Scania();
+        truck.move();
+
+
+
+//        car.startEngine();
+//        car.move();
+//        car.turnLeft();
+//        car.turnLeft();
+//        car.turnRight();
 
     }
 }
