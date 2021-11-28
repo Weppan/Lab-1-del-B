@@ -12,11 +12,6 @@ public class Scania extends Car{
         this.platformAngle = 0;
     }
 
-
-
-
-
-
     public void raise() {
         if (getCurrentSpeed() == 0) {
             platformAngle = platformAngle + 10;
@@ -41,6 +36,18 @@ public class Scania extends Car{
             move();
             //System.out.println("Platform must be flat");
 
+    }
+    @Override
+    public void gas(double amount) {
+        if (getCurrentSpeed() == 0)
+            if (getCurrentSpeed() > getEnginePower()) setCurrentSpeed(getEnginePower());
+            if (getCurrentSpeed() < 0) setCurrentSpeed(0);
+            if (0 <= amount && amount < 1) {
+                incrementSpeed(amount);
+        } else {
+            setgas_error_message();
+            System.out.println(getGas_error_message());
+        }
     }
 
 
