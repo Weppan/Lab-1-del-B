@@ -10,12 +10,12 @@ public abstract class Car implements Movable{
     private double currentSpeed; // The current speed of the car
     private Color color; // Color of the car
     private final String modelName; // The car model name
+    private double weight;
     private double centerPointx; // Position x coordinate
     private double centerPointy; // Position y coordinate
     private double direction; // Angle
     private String gas_error_message;
     private String brake_error_message;
-    private double size;
 
 
     public Car(int nrDoors, double enginePower, Color color, String modelName, double centerPointx, double centerPointy, double direction) {
@@ -23,11 +23,11 @@ public abstract class Car implements Movable{
         this.color = color;
         this.enginePower = enginePower;
         this.modelName = modelName;
+        this.weight;
         this.stopEngine();
         this.centerPointx = centerPointx;
         this.centerPointy = centerPointy;
         this.direction = direction;
-        this.size
     }
 
     public int getNrDoors() {
