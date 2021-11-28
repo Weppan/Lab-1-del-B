@@ -1,6 +1,6 @@
 public class Main {
 
-    public void userInterface(Moveandturn moveable) {
+    public void userInterface(Movable moveable) {
         char x = ' ';
         //char x = getCharacterFromUser();
         if (x == 'm') moveable.move();
@@ -21,7 +21,7 @@ public class Main {
         car.gas(0.5);
         System.out.println("Current speed: " + car.getCurrentSpeed());*/
 
-        Scania truck = new Scania();
+        ScaniaR450 truck = new ScaniaR450();
         truck.move();
 
 

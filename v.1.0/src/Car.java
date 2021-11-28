@@ -16,6 +16,7 @@ public abstract class Car implements Movable{
     private String gas_error_message;
     private String brake_error_message;
 
+
     public Car(int nrDoors, double enginePower, Color color, String modelName, double centerPointx, double centerPointy, double direction) {
         this.nrDoors = nrDoors;
         this.color = color;
