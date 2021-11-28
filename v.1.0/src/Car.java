@@ -15,6 +15,7 @@ public abstract class Car implements Movable{
     private double direction; // Angle
     private String gas_error_message;
     private String brake_error_message;
+    private double size;
 
 
     public Car(int nrDoors, double enginePower, Color color, String modelName, double centerPointx, double centerPointy, double direction) {
@@ -26,6 +27,7 @@ public abstract class Car implements Movable{
         this.centerPointx = centerPointx;
         this.centerPointy = centerPointy;
         this.direction = direction;
+        this.size
     }
 
     public int getNrDoors() {

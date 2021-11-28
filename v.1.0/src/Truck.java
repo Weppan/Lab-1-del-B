@@ -4,11 +4,9 @@ public abstract class Truck extends Car {
 
     private double platformAngle;
 
-
     public Truck(int nrDoors, double enginePower, Color color, String modelName, double centerPointx, double centerPointy, double direction, double platformAngle) {
         super(nrDoors, enginePower, color, modelName, centerPointx, centerPointy, direction);
         this.platformAngle = platformAngle;
-
     }
 
 
@@ -33,8 +31,8 @@ public abstract class Truck extends Car {
 
     @Override
     public void gas(double amount) {
-        if (getCurrentSpeed() == 0)
-            if (getCurrentSpeed() > getEnginePower()) setCurrentSpeed(getEnginePower());
+    if (getPlatformAngle() == 0)
+        if (getCurrentSpeed() > getEnginePower()) setCurrentSpeed(getEnginePower());
         if (getCurrentSpeed() < 0) setCurrentSpeed(0);
         if (0 <= amount && amount < 1) {
             incrementSpeed(amount);
