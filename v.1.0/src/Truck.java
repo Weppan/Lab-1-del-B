@@ -4,8 +4,8 @@ public abstract class Truck extends Car {
 
     private double platformAngle;
 
-    public Truck(int nrDoors, double enginePower, Color color, String modelName, double centerPointx, double centerPointy, double direction, double platformAngle) {
-        super(nrDoors, enginePower, color, modelName, centerPointx, centerPointy, direction);
+    public Truck(int nrDoors, double enginePower, Color color,String modelName, double weight, double centerPointx, double centerPointy, double direction, double platformAngle) {
+        super(nrDoors, enginePower, color, modelName, weight, centerPointx, centerPointy, direction);
         this.platformAngle = platformAngle;
     }
 

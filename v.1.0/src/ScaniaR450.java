@@ -7,7 +7,7 @@ public class ScaniaR450 extends Truck{
 
 
     public ScaniaR450(){
-        super(2,200, Color.white, "R-450-LA4x2MEB", 0,0,0, 0);
+        super(2,200, Color.white, "R-450-LA4x2MEB", 18_000,0,0,0, 0);
     }
 
 }

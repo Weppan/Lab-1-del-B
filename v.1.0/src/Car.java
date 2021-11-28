@@ -18,12 +18,12 @@ public abstract class Car implements Movable{
     private String brake_error_message;
 
 
-    public Car(int nrDoors, double enginePower, Color color, String modelName, double centerPointx, double centerPointy, double direction) {
+    public Car(int nrDoors, double enginePower, Color color, String modelName, double weight, double centerPointx, double centerPointy, double direction) {
         this.nrDoors = nrDoors;
         this.color = color;
         this.enginePower = enginePower;
         this.modelName = modelName;
-        this.weight;
+        this.weight = weight;
         this.stopEngine();
         this.centerPointx = centerPointx;
         this.centerPointy = centerPointy;
@@ -62,6 +62,14 @@ public abstract class Car implements Movable{
         return centerPointy;
     }
 
+    public double getWeight() {
+        return weight;
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
+
     public String getModelName() {
         return modelName;
     }
@@ -92,6 +100,26 @@ public abstract class Car implements Movable{
 
     public void stopEngine() {
         currentSpeed = 0;
+    }
+
+    public void setCenterPointx(double centerPointx) {
+        this.centerPointx = centerPointx;
+    }
+
+    public void setCenterPointy(double centerPointy) {
+        this.centerPointy = centerPointy;
+    }
+
+    public void setGas_error_message(String gas_error_message) {
+        this.gas_error_message = gas_error_message;
+    }
+
+    public void setDirection(double direction) {
+        this.direction = direction;
+    }
+
+    public void setBrake_error_message(String brake_error_message) {
+        this.brake_error_message = brake_error_message;
     }
 
     public void move() {
