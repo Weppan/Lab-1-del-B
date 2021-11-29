@@ -1,15 +1,18 @@
 import java.util.ArrayList;
 
-public class Workshop <T extends Car, V>{
-    T obj;
-    V obj2;
+public class Workshop <T extends Car>{
+
+
     private ArrayList<T> cars_in_shop;
     int capacity;
 
-    Workshop(T obj, V obj2, int capacity) {
-        this.obj = obj;
-        this.obj2 = obj2;
+
+
+    Workshop(int capacity) {
+
         this.capacity = capacity;
+        cars_in_shop = new ArrayList<>();
+
     }
 
     public void recieveCar(T car){

@@ -38,9 +38,13 @@ public class Main {
         Saab95 car3 = new Saab95();
 
         //Workshop<Car, Saab95> repairshop1 = new Workshop<>(car2, car3, 4);
-        //Workshop<Car, Volvo240> repairshop2 = new Workshop<Car, Volvo240>(car2, car, 4);
 
-        //repairshop1.recieveCar(car2);
+
+        Workshop<Volvo240> repairshop1 = new Workshop<>(4);
+        Workshop<Saab95> repairshop2 = new Workshop<>(4);
+
+
+        repairshop1.recieveCar(car);
         //repairshop1.retrieveCar(car2);
 
 
