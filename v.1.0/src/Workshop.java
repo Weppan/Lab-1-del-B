@@ -15,19 +15,19 @@ public class Workshop <T extends Car>{
 
     }
 
-    public void recieveCar(T car){
+    public void receiveCar(T car){
         if(cars_in_shop.size()< capacity)   //Funkar (int)??
             cars_in_shop.add(car);
         System.out.println(cars_in_shop);
     }
 
-//    public void retrieveCar(T car){
-//        if(cars_in_shop.size()>0)
-//            for(int i=0;i<cars_in_shop.size(); i++){
-//                if (cars_in_shop.get(i) == car){
-//                    cars_in_shop.remove(car);
-//                }
-//                System.out.println(cars_in_shop);
-//            }
-//    }
+    public void retrieveCar(T car){
+        if(cars_in_shop.size()>0)
+            for(int i=0;i<cars_in_shop.size(); i++){
+                if (cars_in_shop.get(i) == car){
+                    cars_in_shop.remove(car);
+                }
+                System.out.println(cars_in_shop);
+            }
+    }
 }
