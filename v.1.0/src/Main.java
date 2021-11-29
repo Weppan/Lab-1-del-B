@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Main {
 
     public void userInterface(Movable moveable) {
@@ -10,9 +12,9 @@ public class Main {
     public static void main (String[] args) {
         Volvo240 car = new Volvo240();
 //        userInterface(car);
-/*        Saab95 car2 = new Saab95();
+        Saab95 car2 = new Saab95();
 
-        car
+/*        car
         System.out.println("Number of doors: " + car.getNrDoors());
         System.out.println("Engine power: " + car.getEnginePower());
         System.out.println("Current speed: " + car.getCurrentSpeed());
@@ -23,7 +25,10 @@ public class Main {
 
         ScaniaR450 truck = new ScaniaR450();
         truck.move();
+        ArrayList<Object> list1 = new ArrayList<>();
+        Workshop<Car, Volvo240> repairshop1 = new Workshop<Car, Volvo240>(car2, car, 4);
 
+        repairshop1.recieveCar(car2);
 
 
 //        car.startEngine();
