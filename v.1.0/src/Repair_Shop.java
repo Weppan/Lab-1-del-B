@@ -15,8 +15,8 @@ public class Repair_Shop <T,V>{
             cars_in_shop.add(obj);
     }
 
-    public void retrieveCar(){
-        if(cars_in_shop.size()>0)
-            cars_in_shop.remove();
-    }
+//    public void retrieveCar(){
+//        if(cars_in_shop.size()>0)
+//            cars_in_shop.remove();
+//    }
 }

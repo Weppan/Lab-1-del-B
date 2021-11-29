@@ -47,6 +47,26 @@ public class Saab95test {
         assertTrue(current_speed2<initial_speed2);
     }
     @Test
+    public void Saab95_setter_test () {
+        Saab95 car =  new Saab95();
+
+        car.setCenterPointx(60);
+        double positionX = car.getCenterPointx();
+        assertEquals(60,positionX);
+
+        car.setCenterPointy(60);
+        double positionY = car.getCenterPointy();
+        assertEquals(60,positionY);
+
+        car.setCurrentSpeed(100);
+        double speed = car.getCurrentSpeed();
+        assertEquals(100,speed);
+
+        car.setDirection(3);
+        double direction_angle = car.getDirection();
+        assertEquals(3,direction_angle);
+    }
+    @Test
     public void Saab95_getter_test () {
         Saab95 car = new Saab95();
         int NrDoors = car.getNrDoors();

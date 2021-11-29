@@ -46,8 +46,29 @@ public class Volvo240test {
         double current_speed2 = car.getCurrentSpeed();
         assertTrue(current_speed2<initial_speed2);
     }
+
     @Test
-    public void Volvo240_getter_test () {
+    public void Volvo240_setter_test () {
+        Volvo240 car = new Volvo240();
+
+        car.setCenterPointx(60);
+        double positionX = car.getCenterPointx();
+        assertEquals(60, positionX);
+
+        car.setCenterPointy(60);
+        double positionY = car.getCenterPointy();
+        assertEquals(60, positionY);
+
+        car.setCurrentSpeed(100);
+        double speed = car.getCurrentSpeed();
+        assertEquals(100, speed);
+
+        car.setDirection(3);
+        double direction_angle = car.getDirection();
+        assertEquals(3, direction_angle);
+    }
+    @Test
+    public void Volvo240_getter_test() {
         Volvo240 car = new Volvo240();
         int NrDoors = car.getNrDoors();
         assertEquals(4, NrDoors, 0);
