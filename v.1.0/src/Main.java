@@ -10,9 +10,7 @@ public class Main {
     }
 
     public static void main (String[] args) {
-        Volvo240 car = new Volvo240();
-//        userInterface(car);
-        Saab95 car2 = new Saab95();
+
 
 /*        car
         System.out.println("Number of doors: " + car.getNrDoors());
@@ -25,10 +23,7 @@ public class Main {
 
         ScaniaR450 truck = new ScaniaR450();
         truck.move();
-        ArrayList<Object> list1 = new ArrayList<>();
-        Workshop<Car, Volvo240> repairshop1 = new Workshop<Car, Volvo240>(car2, car, 4);
 
-        repairshop1.recieveCar(car2);
 
 
 //        car.startEngine();
@@ -36,6 +31,27 @@ public class Main {
 //        car.turnLeft();
 //        car.turnLeft();
 //        car.turnRight();
+
+        Volvo240 car = new Volvo240();
+//        userInterface(car);
+        Saab95 car2 = new Saab95();
+        Saab95 car3 = new Saab95();
+
+        //Workshop<Car, Saab95> repairshop1 = new Workshop<>(car2, car3, 4);
+        //Workshop<Car, Volvo240> repairshop2 = new Workshop<Car, Volvo240>(car2, car, 4);
+
+        //repairshop1.recieveCar(car2);
+        //repairshop1.retrieveCar(car2);
+
+
+
+        String word1 = new String("Hello");
+        ArrayList<String> strList = new ArrayList<String>();
+        ArrayList<Car> carList = new ArrayList<>();
+        carList.add(car3);
+        System.out.println(carList);
+
+
 
     }
 }

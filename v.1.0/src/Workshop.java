@@ -1,22 +1,30 @@
 import java.util.ArrayList;
 
-public class Repair_Shop <T,V>{
+public class Workshop <T extends Car, V>{
     T obj;
     V obj2;
     private ArrayList<T> cars_in_shop;
+    int capacity;
 
-        Repair_Shop(T obj, V obj2) {
+    Workshop(T obj, V obj2, int capacity) {
         this.obj = obj;
         this.obj2 = obj2;
+        this.capacity = capacity;
     }
 
-    public void recieveCar(){
-        if(cars_in_shop.size()> (int) obj2-1)   //Funkar (int)??
-            cars_in_shop.add(obj);
+    public void recieveCar(T car){
+        if(cars_in_shop.size()< capacity)   //Funkar (int)??
+            cars_in_shop.add(car);
+        System.out.println(cars_in_shop);
     }
 
-//    public void retrieveCar(){
+//    public void retrieveCar(T car){
 //        if(cars_in_shop.size()>0)
-//            cars_in_shop.remove();
+//            for(int i=0;i<cars_in_shop.size(); i++){
+//                if (cars_in_shop.get(i) == car){
+//                    cars_in_shop.remove(car);
+//                }
+//                System.out.println(cars_in_shop);
+//            }
 //    }
 }

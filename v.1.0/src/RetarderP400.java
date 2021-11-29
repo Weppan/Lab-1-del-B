@@ -9,7 +9,8 @@ public class RetarderP400 extends Truck implements Load {
     private ArrayList<Car> the_load;
     private String LoadErrorMsg;
     private String UnloadErrorMsg;
-
+    
+    
     public RetarderP400() {
         super(2,250, Color.orange, "Scania P400 E5 6x2 Komplett Zug Anhänger Retarder", 24_000,0,0,0, 0);
     }
