@@ -25,6 +25,27 @@ public class Saab95test {
         double output = car.getCenterPointx();
         assertTrue(old_pos != output);
 
+        double old_pos2 = car.getCenterPointx();
+        car.setDirection(3);
+        car.startEngine();
+        car.move();
+        double output2 = car.getCenterPointx();
+        assertTrue(old_pos2 != output2);
+
+        double old_pos3 = car.getCenterPointx();
+        car.setDirection(3.5);
+        car.startEngine();
+        car.move();
+        double output3 = car.getCenterPointx();
+        assertTrue(old_pos3 != output3);
+
+        double old_pos4 = car.getCenterPointx();
+        car.setDirection(6);
+        car.startEngine();
+        car.move();
+        double output4 = car.getCenterPointx();
+        assertTrue(old_pos4 != output4);
+
 
         double test2 = car.getDirection();
         car.turnRight();
@@ -65,6 +86,9 @@ public class Saab95test {
         car.setDirection(3);
         double direction_angle = car.getDirection();
         assertEquals(3,direction_angle);
+
+        car.setWeight(50);
+        assertEquals(50 ,car.getWeight());
     }
     @Test
     public void Saab95_getter_test () {

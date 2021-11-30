@@ -14,6 +14,7 @@ public class RetarderP400 extends Truck implements Load {
 
     public RetarderP400() {
         super(2,250, Color.orange, "Scania P400 E5 6x2 Komplett Zug Anhänger Retarder", 24_000,0,0,0, 0);
+        the_load = new ArrayList<>();
     }
 
     @Override
@@ -36,14 +37,14 @@ public class RetarderP400 extends Truck implements Load {
     }
     public void load(RetarderP400 cartransoporter, Car vehicle){
         if
-        (the_load.size() < 8 && this.getPlatformAngle() == -30
-                && (abs(this.getCenterPointx() - vehicle.getCenterPointx())) < 10
-                && (abs(this.getCenterPointy() - vehicle.getCenterPointy())) < 10
-                && vehicle != this
+        (the_load.size() < 8 && cartransoporter.getPlatformAngle() == -30
+                && (abs(cartransoporter.getCenterPointx() - vehicle.getCenterPointx())) < 10
+                && (abs(cartransoporter.getCenterPointy() - vehicle.getCenterPointy())) < 10
+                && vehicle != cartransoporter
                 && vehicle.getWeight() <2500){
             the_load.add(vehicle);
-            vehicle.setCenterPointx(this.getCenterPointx());
-            vehicle.setCenterPointy(this.getCenterPointy());
+            vehicle.setCenterPointx(cartransoporter.getCenterPointx());
+            vehicle.setCenterPointy(cartransoporter.getCenterPointy());
         }
         else setLoadErrorMsg();
         System.out.println(getThe_load());

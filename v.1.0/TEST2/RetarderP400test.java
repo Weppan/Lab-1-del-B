@@ -115,9 +115,17 @@ public class RetarderP400test {
     public void Load_tests(){
         RetarderP400 truck = new RetarderP400();
         Volvo240 car = new Volvo240();
-        truck.load(car);
-        assertNull(truck.getThe_load());
-        //assertFalse(truck.getThe_load().isEmpty());
+        truck.lower();
+        truck.load(truck, car);
+        assertFalse(truck.getThe_load().isEmpty());
+        assertEquals(truck.getCenterPointy(),car.getCenterPointy());
+        assertEquals(truck.getCenterPointx(), car.getCenterPointx());
+
+        Car last_car = truck.getThe_load().get(truck.getThe_load().size()-1);
+        truck.unload();
+        assertTrue(truck.getThe_load().isEmpty());
+        assertEquals(truck.getCenterPointx(), last_car.getCenterPointx(),10);
+        assertEquals(truck.getCenterPointy(), last_car.getCenterPointy(), 10);
     }
 }
 

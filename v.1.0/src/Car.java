@@ -110,16 +110,9 @@ public abstract class Car implements Movable{
         this.centerPointy = centerPointy;
     }
 
-    public void setGas_error_message(String gas_error_message) {
-        this.gas_error_message = gas_error_message;
-    }
 
     public void setDirection(double direction) {
         this.direction = direction;
-    }
-
-    public void setBrake_error_message(String brake_error_message) {
-        this.brake_error_message = brake_error_message;
     }
 
     public void move() {

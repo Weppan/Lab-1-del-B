@@ -16,7 +16,7 @@ public class Workshop <T extends Car>{
     }
 
     public void receiveCar(T car){
-        if(cars_in_shop.size()< capacity)   //Funkar (int)??
+        if(cars_in_shop.size()< capacity)
             cars_in_shop.add(car);
         System.out.println(cars_in_shop);
     }
@@ -29,5 +29,9 @@ public class Workshop <T extends Car>{
                 }
                 System.out.println(cars_in_shop);
             }
+    }
+
+    public ArrayList<T> getCars_in_shop() {
+        return cars_in_shop;
     }
 }
