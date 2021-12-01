@@ -30,9 +30,10 @@ public class Saab95 extends Car{
 	    turboOn = false;
     }
 
-    /** Calculates the speed factor for Saab95.
-     * @return double a speed factor
-     * */
+//    /** Calculates the speed factor for Saab95.
+//     * @return double a speed factor
+//     * */
+
     @Override
     public double speedFactor(){
         double turbo = 1;

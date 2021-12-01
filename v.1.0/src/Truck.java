@@ -79,7 +79,7 @@ public abstract class Truck extends Car {
         return platformAngle;
     }
 
-    /** Gets the error message when ramp too high of a truck.
+    /** Gets the error message when ramp too high for driving.
      * @return String error message that platform too high
      * */
     public String getPlfrmToHighGasErrorMsg() {
