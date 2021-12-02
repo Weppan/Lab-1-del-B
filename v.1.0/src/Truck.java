@@ -19,7 +19,7 @@ public abstract class Truck extends Car {
     /** Raises the ramp of a truck.*/
     public void raise() {
         if (getCurrentSpeed() == 0) {
-            platformAngle = platformAngle + 10;
+            platformAngle = platformAngle + 1;
             if (platformAngle > 70)
                 platformAngle = 70;
         }
@@ -30,7 +30,7 @@ public abstract class Truck extends Car {
     /** Lowers the ramp of a truck.*/
     public void lower() {
         if (getCurrentSpeed() == 0) {
-            platformAngle = platformAngle - 10;
+            platformAngle = platformAngle - 1;
             if (platformAngle < 0)
                 platformAngle = 0;
         }

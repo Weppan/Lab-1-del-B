@@ -1,13 +1,12 @@
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Collections;
 
 import static java.lang.Math.abs;
 
 /** Creates objects that are RetarderP400.
  * @author madel
  * */
-public class RetarderP400 extends Truck implements Load {
+public class RetarderP400 extends Truck {
 
     private ArrayList<Car> the_load;
     private String LoadErrorMsg;
@@ -46,16 +45,16 @@ public class RetarderP400 extends Truck implements Load {
      * @param cartransoporter
      * @param vehicle
      * */
-    public void load(RetarderP400 cartransoporter, Car vehicle){
+    public void load(Car vehicle){
         if
-        (the_load.size() < 8 && cartransoporter.getPlatformAngle() == -30
-                && (abs(cartransoporter.getCenterPointx() - vehicle.getCenterPointx())) < 10
-                && (abs(cartransoporter.getCenterPointy() - vehicle.getCenterPointy())) < 10
-                && vehicle != cartransoporter
+        (the_load.size() < 8 && this.getPlatformAngle() == -30
+                && (abs(this.getCenterPointx() - vehicle.getCenterPointx())) < 10
+                && (abs(this.getCenterPointy() - vehicle.getCenterPointy())) < 10
+                && vehicle != this
                 && vehicle.getWeight() <2500){
             the_load.add(vehicle);
-            vehicle.setCenterPointx(cartransoporter.getCenterPointx());
-            vehicle.setCenterPointy(cartransoporter.getCenterPointy());
+            vehicle.setCenterPointx(this.getCenterPointx());
+            vehicle.setCenterPointy(this.getCenterPointy());
         }
         else setLoadErrorMsg();
         System.out.println(getThe_load());
