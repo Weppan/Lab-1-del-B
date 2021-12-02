@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Main {
 
     public void userInterface(Movable moveable) {
@@ -18,6 +20,8 @@ public class Main {
         System.out.println("Current speed: " + car.getCurrentSpeed());
         car.gas(0.5);
         System.out.println("Current speed: " + car.getCurrentSpeed());*/
+        Car car575 = new Saab95();
+        Saab95 car766 = new Saab95();
 
         ScaniaR450 truck = new ScaniaR450();
         truck.move();
@@ -39,7 +43,21 @@ public class Main {
         //Workshop<Car, Saab95> repairshop1 = new Workshop<>(car2, car3, 4);
 
 
-        Workshop<Volvo240> repairshop1 = new Workshop<>(4);
+
+
+
+
+
+
+
+
+
+        RetarderP400 platformer = new RetarderP400();
+
+
+        platformer.lower();
+
+        System.out.println(platformer.getThe_load());
 
 
 

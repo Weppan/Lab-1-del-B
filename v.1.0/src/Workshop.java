@@ -15,7 +15,6 @@ public class Workshop <T extends Car>{
 
         this.capacity = capacity;
         cars_in_shop = new ArrayList<>();
-
     }
 
     /** Receives a car in the workshop.

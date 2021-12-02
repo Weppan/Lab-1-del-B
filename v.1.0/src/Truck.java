@@ -13,7 +13,7 @@ public abstract class Truck extends Car {
     /** Creates a truck.*/
     public Truck(int nrDoors, double enginePower, Color color,String modelName, double weight, double centerPointx, double centerPointy, double direction, double platformAngle) {
         super(nrDoors, enginePower, color, modelName, weight, centerPointx, centerPointy, direction);
-        this.platformAngle = 0;
+        this.platformAngle = platformAngle;
     }
 
     /** Raises the ramp of a truck.*/
@@ -26,6 +26,17 @@ public abstract class Truck extends Car {
         else setPlfrmErrorMsg();
             System.out.println(getPlfrmErrorMsg());
     }
+
+//    public void raise(int angle) {
+//        if (getCurrentSpeed() == 0) {
+//            platformAngle = angle;
+//            if (platformAngle > 70)
+//                platformAngle = 70;
+//            if (platformAngle < 0)
+//                platformAngle = 0;
+//        }
+//        else setPlfrmErrorMsg();
+//        System.out.println(getPlfrmErrorMsg());
 
     /** Lowers the ramp of a truck.*/
     public void lower() {
