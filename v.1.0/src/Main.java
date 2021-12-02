@@ -20,11 +20,10 @@ public class Main {
         System.out.println("Current speed: " + car.getCurrentSpeed());
         car.gas(0.5);
         System.out.println("Current speed: " + car.getCurrentSpeed());*/
-        Car car575 = new Saab95();
-        Saab95 car766 = new Saab95();
+
 
         ScaniaR450 truck = new ScaniaR450();
-        truck.move();
+
 
 
 
@@ -36,34 +35,33 @@ public class Main {
 
         Volvo240 car = new Volvo240();
         Volvo240 car2 = new Volvo240();
+
 //        userInterface(car);
        // Saab95 car2 = new Saab95();
-       // Saab95 car3 = new Saab95();
+        Saab95 car3 = new Saab95();
 
         //Workshop<Car, Saab95> repairshop1 = new Workshop<>(car2, car3, 4);
 
 
-
-
-
-
-
-
-
-
-
         RetarderP400 platformer = new RetarderP400();
 
-
         platformer.lower();
+        car.startEngine();
 
-        System.out.println(platformer.getThe_load());
+        platformer.load(car);
+        platformer.load(car2);
+        platformer.load(car3);
 
 
 
-        repairshop1.receiveCar(car);
-        repairshop1.receiveCar(car2);
-        repairshop1.retrieveCar(car);
+        System.out.println(car.getCurrentSpeed());
+        car.gas(0.5);
+        System.out.println(car.getCurrentSpeed());
+
+
+
+
+
 
 
 

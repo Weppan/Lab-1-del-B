@@ -2,7 +2,9 @@ import java.awt.*;
 
 /** A template for a truck.
  * @author madel
+ * @author egord
  * */
+// och Olof
 public abstract class Truck extends Car {
 
     private double platformAngle;
@@ -16,48 +18,15 @@ public abstract class Truck extends Car {
         this.platformAngle = platformAngle;
     }
 
-    /** Raises the ramp of a truck.*/
-    public void raise() {
-        if (getCurrentSpeed() == 0) {
-            platformAngle = platformAngle + 10;
-            if (platformAngle > 70)
-                platformAngle = 70;
-        }
-        else setPlfrmErrorMsg();
-            System.out.println(getPlfrmErrorMsg());
-    }
-
-//    public void raise(int angle) {
-//        if (getCurrentSpeed() == 0) {
-//            platformAngle = angle;
-//            if (platformAngle > 70)
-//                platformAngle = 70;
-//            if (platformAngle < 0)
-//                platformAngle = 0;
-//        }
-//        else setPlfrmErrorMsg();
-//        System.out.println(getPlfrmErrorMsg());
-
-    /** Lowers the ramp of a truck.*/
-    public void lower() {
-        if (getCurrentSpeed() == 0) {
-            platformAngle = platformAngle - 10;
-            if (platformAngle < 0)
-                platformAngle = 0;
-        }
-        else setPlfrmErrorMsg();
-            System.out.println(getPlfrmErrorMsg());
-    }
-
     /** Gases a truck.
      * @param amount
      * */
     @Override
     public void gas(double amount) {
-    if (getPlatformAngle() < 0){
+    if (platformAngle < 0){
         setPlfrmToLowGasErrorMsg();
         System.out.println(getPlfrmToLowGasErrorMsg());}
-    else if (getPlatformAngle() > 0){
+    else if (platformAngle > 0){
         setPlfrmToHighGasErrorMsg();
         System.out.println(getPlfrmToHighGasErrorMsg());
     }
@@ -75,7 +44,6 @@ public abstract class Truck extends Car {
 
 
     @Override
-
     /** Calculates the speed factor for a truck.
      * @return double a speed factor
      * */
@@ -118,10 +86,10 @@ public abstract class Truck extends Car {
     }
 
     /** Sets the platform angle of a truck.
-     * @param platformAngle how much the ramp of a truck is tilted
+     * @param platformAngleValue how much the ramp of a truck is tilted
      * */
-    public void setPlatformAngle(double platformAngle) {
-        this.platformAngle = platformAngle;
+    public void setPlatformAngle(double platformAngleValue) {
+        platformAngle = platformAngleValue;
     }
 
     /** Sets the error message when ramp too high of a truck.*/

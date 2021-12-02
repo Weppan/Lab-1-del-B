@@ -18,6 +18,9 @@ public abstract class Car implements Movable{
     private double direction; // Angle
     private String gas_error_message;
     private String brake_error_message;
+    private boolean loaded = false;
+
+
 
     /** Creates a car.*/
     public Car(int nrDoors, double enginePower, Color color, String modelName, double weight, double centerPointx, double centerPointy, double direction) {
@@ -173,34 +176,31 @@ public abstract class Car implements Movable{
 
     /** Moves a car*/
     public void move() {
+        if(!loaded) {
+            double distance = currentSpeed * 1; //1 är tidsenheten.
 
-        double distance = currentSpeed * 1; //1 är tidsenheten.
-
-        if (0 <= direction && direction < PI/2) {
-            centerPointx = centerPointx + cos(direction) * distance;
-            centerPointy = centerPointy + sin(direction) * distance;
-            System.out.println("x " + centerPointx);
-            System.out.println("y " + centerPointy);
+            if (0 <= direction && direction < PI / 2) {
+                centerPointx = centerPointx + cos(direction) * distance;
+                centerPointy = centerPointy + sin(direction) * distance;
+                System.out.println("x " + centerPointx);
+                System.out.println("y " + centerPointy);
+            } else if (PI / 2 <= direction && direction < PI) {
+                centerPointx = centerPointx - sin(direction - PI / 2) * distance;
+                centerPointy = centerPointy + cos(direction - PI / 2) * distance;
+                System.out.println("x " + centerPointx);
+                System.out.println("y " + centerPointy);
+            } else if (PI <= direction && direction < (3 * PI) / 2) {
+                centerPointx = centerPointx - cos(direction - PI) * distance;
+                centerPointy = centerPointy - sin(direction - PI) * distance;
+                System.out.println("x " + centerPointx);
+                System.out.println("y " + centerPointy);
+            } else {
+                centerPointx = centerPointx + sin(direction - (3 * PI) / 2) * distance;
+                centerPointy = centerPointy - cos(direction - (3 * PI) / 2) * distance;
+                System.out.println("x " + centerPointx);
+                System.out.println("y " + centerPointy);
+            }
         }
-        else if (PI/2 <= direction && direction < PI) {
-            centerPointx = centerPointx - sin(direction - PI / 2) * distance;
-            centerPointy = centerPointy + cos(direction - PI / 2) * distance;
-            System.out.println("x " + centerPointx);
-            System.out.println("y " + centerPointy);
-        }
-        else if (PI <= direction && direction < (3*PI)/2) {
-            centerPointx = centerPointx - cos(direction - PI) * distance;
-            centerPointy = centerPointy - sin(direction - PI) * distance;
-            System.out.println("x " + centerPointx);
-            System.out.println("y " + centerPointy);
-        }
-        else {
-            centerPointx = centerPointx + sin(direction - (3*PI)/2) * distance;
-            centerPointy = centerPointy - cos(direction - (3*PI)/2) * distance;
-            System.out.println("x " + centerPointx);
-            System.out.println("y " + centerPointy);
-        }
-
     }
 
     /** Turns a car left. */
@@ -222,14 +222,17 @@ public abstract class Car implements Movable{
      * @param amount
      * */
     public void gas(double amount) {
-        if (currentSpeed > enginePower) currentSpeed = enginePower;
-        if (currentSpeed < 0) currentSpeed = 0;
-        if (0 <= amount && amount < 1) {
-            incrementSpeed(amount);
-        } else {
-            setgas_error_message();
-            System.out.println(gas_error_message);
+        if (!loaded) {
+            if (currentSpeed > enginePower) currentSpeed = enginePower;
+            if (currentSpeed < 0) currentSpeed = 0;
+            if (0 <= amount && amount < 1) {
+                incrementSpeed(amount);
+            } else {
+                setgas_error_message();
+                System.out.println(gas_error_message);
+            }
         }
+        System.out.println("Cant move car is loaded");
     }
 
     /** Brakes a car.
@@ -260,5 +263,12 @@ public abstract class Car implements Movable{
         currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount,0);
     }
 
+    public boolean isLoaded() {
+        return loaded;
+    }
+
+    public void setLoaded(boolean loaded) {
+        this.loaded = loaded;
+    }
 }
 
