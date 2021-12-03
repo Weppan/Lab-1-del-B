@@ -75,31 +75,7 @@ public class RetarderP400 extends Truck implements Load {
     }
     @Override
     public void move() {
-
-        double distance = getCurrentSpeed() * 1; //1 är tidsenheten.
-
-        if (0 <= this.getDirection() && this.getDirection() < PI / 2) {
-            this.setCenterPointx(this.getCenterPointx() + cos(this.getDirection()) * distance);
-            this.setCenterPointy(this.getCenterPointy() + sin(this.getDirection()) * distance);
-           // System.out.println("x " + this.getCenterPointx());
-           // System.out.println("y " + this.getCenterPointy());
-
-        } else if (PI / 2 <= this.getDirection() && this.getDirection() < PI) {
-            this.setCenterPointx(this.getCenterPointx() - sin(this.getDirection()) * distance);
-            this.setCenterPointy(this.getCenterPointy() + cos(this.getDirection()) * distance);
-           // System.out.println("x " + this.getCenterPointx());
-            //System.out.println("y " + this.getCenterPointy());
-        } else if (PI <= this.getDirection() && this.getDirection() < (3 * PI) / 2) {
-            this.setCenterPointx(this.getCenterPointx() - cos(this.getDirection()) * distance);
-            this.setCenterPointy(this.getCenterPointy() - sin(this.getDirection()) * distance);
-           // System.out.println("x " + this.getCenterPointx());
-           // System.out.println("y " + this.getCenterPointy());
-        } else {
-            this.setCenterPointx(this.getCenterPointx() + sin(this.getDirection()) * distance);
-            this.setCenterPointy(this.getCenterPointy() - cos(this.getDirection()) * distance);
-           // System.out.println("x " + this.getCenterPointx());
-           // System.out.println("y " + this.getCenterPointy());
-        }
+        super.move();
         updateTheLoadPosition();
     }
 
