@@ -165,6 +165,5 @@ public class RetarderP400test {
         assertEquals(car.getCenterPointx(), volvo.getCenterPointx());
         assertEquals(car.getCenterPointy(), volvo.getCenterPointy());
     }
-
 }
 
