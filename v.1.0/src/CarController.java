@@ -3,6 +3,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import static java.lang.Math.PI;
+
 
 
 /*
@@ -26,7 +28,8 @@ public class CarController {
     // The frame that represents this instance View of the MVC pattern
     CarView frame;
     // A list of cars, modify if needed
-    ArrayList<Car> cars = new ArrayList<>();
+    ArrayList<Car> cars = new ArrayList<>(); //Får denna vara Static??
+
 
     //methods:
 
@@ -34,7 +37,15 @@ public class CarController {
         // Instance of this class
         CarController cc = new CarController();
 
-        cc.cars.add(new Volvo240());
+//        cc.cars.add(new Volvo240());       default code
+//        Volvo240 volvo = new Volvo240();
+//        cc.cars.add(volvo);
+        Saab95 saab = new Saab95();
+        saab.setCenterPointy(100);      //detta känns dåligt
+        cc.cars.add(saab);
+//        ScaniaR450 scania = new ScaniaR450();
+//        scania.setCenterPointy(200);
+//        cc.cars.add(scania);
 
 
         // Start a new view and send a reference of self
@@ -50,7 +61,11 @@ public class CarController {
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             for (Car car : cars) {
+
+                borderLogic(car);
+
                 car.move();
+
                 int x = (int) Math.round(car.getCenterPointx());
                 int y = (int) Math.round(car.getCenterPointy());
                 frame.drawPanel.moveit(x, y);
@@ -60,12 +75,32 @@ public class CarController {
         }
     }
 
+    private void borderLogic(Car car) {
+        if(
+                car.getCenterPointx() < 0
+                || car.getCenterPointy() < 0
+                || car.getCenterPointx() > CarView.X
+                || car.getCenterPointy() > CarView.Y){
+
+            double initialSpeed = car.getCurrentSpeed();
+            car.setCurrentSpeed(0);
+            car.setDirection(car.getDirection() + PI);
+            car.setCurrentSpeed(initialSpeed);
+        }
+    }
+
+
     // Calls the gas method for each car once
     void gas(int amount) {
         double gas = ((double) amount) / 100;
-        for (Car car : cars
-                ) {
+        for (Car car : cars) {
             car.gas(gas);
+        }
+    }
+    void brake(int amount) {
+        double gas = ((double) amount) / 100;
+        for (Car car : cars) {
+            car.brake(gas);
         }
     }
 }
