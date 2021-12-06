@@ -1,8 +1,7 @@
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Collections;
 
-import static java.lang.Math.abs;
+import static java.lang.Math.*;
 
 /** Creates objects that are RetarderP400.
  * @author madel
@@ -21,7 +20,6 @@ public class RetarderP400 extends Truck implements Load {
     }
 
     /** Raises the ramp of a RetarderP400.*/
-    @Override
     public void raise() {
         if (getCurrentSpeed() == 0) {
             setPlatformAngle(0);
@@ -32,7 +30,6 @@ public class RetarderP400 extends Truck implements Load {
     }
 
     /** Lowers the ramp of a RetarderP400.*/
-    @Override
     public void lower() {
         if (getCurrentSpeed() == 0) {
             setPlatformAngle(-30);
@@ -43,26 +40,25 @@ public class RetarderP400 extends Truck implements Load {
     }
 
     /** Loads a RetarderP400.
-     * @param cartransoporter
      * @param vehicle
      * */
-    public void load(RetarderP400 cartransoporter, Car vehicle){
+    public void load(Car vehicle){
         if
-        (the_load.size() < 8 && cartransoporter.getPlatformAngle() == -30
-                && (abs(cartransoporter.getCenterPointx() - vehicle.getCenterPointx())) < 10
-                && (abs(cartransoporter.getCenterPointy() - vehicle.getCenterPointy())) < 10
-                && vehicle != cartransoporter
+        (the_load.size() < 8 && this.getPlatformAngle() == -30
+                && (abs(this.getCenterPointx() - vehicle.getCenterPointx())) < 10
+                && (abs(this.getCenterPointy() - vehicle.getCenterPointy())) < 10
+                && vehicle != this
                 && vehicle.getWeight() <2500){
             the_load.add(vehicle);
-            vehicle.setCenterPointx(cartransoporter.getCenterPointx());
-            vehicle.setCenterPointy(cartransoporter.getCenterPointy());
+            vehicle.setLoaded(true);
+            vehicle.setCurrentSpeed(0);
+            vehicle.setCenterPointx(this.getCenterPointx());
+            vehicle.setCenterPointy(this.getCenterPointy());
         }
         else setLoadErrorMsg();
         System.out.println(getThe_load());
     }
 
-
-            //Dont forget to add error message
 
 
     /** Unloads a RetarderP400.*/
@@ -72,9 +68,22 @@ public class RetarderP400 extends Truck implements Load {
         the_load.remove(the_load.size()-1);
         last_car.setCenterPointy(this.getCenterPointy()-10);
         last_car.setCenterPointx(this.getCenterPointx()-10);
+        last_car.setLoaded(false);
         }
         else setUnloadErrorMsg();
         System.out.println(getUnloadErrorMsg());
+    }
+    @Override
+    public void move() {
+        super.move();
+        updateTheLoadPosition();
+    }
+
+    private void updateTheLoadPosition(){
+        for (Car i : the_load) {
+            i.setCenterPointx(this.getCenterPointx());
+            i.setCenterPointy(this.getCenterPointy());
+        }
     }
 
     /** Gets the load error message of a RetarderP400.

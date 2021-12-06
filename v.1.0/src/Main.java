@@ -61,7 +61,9 @@ public class Main {
 
 
 
-
+        repairshop1.receiveCar(car);
+        repairshop1.receiveCar(car2);
+        repairshop1.retrieveCar(car);
 
 
 

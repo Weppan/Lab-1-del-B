@@ -1,23 +1,16 @@
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class RetarderP400test {
     @Test
-    public void Ramp_tests(){
+    public void Ramp_tests() {
         RetarderP400 truck = new RetarderP400();
-        double initial_angle = truck.getPlatformAngle();
         truck.lower();
-        assertTrue(truck.getPlatformAngle()<initial_angle);
+        assertEquals(-30, truck.getPlatformAngle());
 
-        double initial_angle2 = truck.getPlatformAngle();
         truck.raise();
-        assertTrue(truck.getPlatformAngle()>initial_angle2);
+        assertEquals(0, truck.getPlatformAngle());
 
         truck.setCurrentSpeed(50);
         truck.lower();
@@ -116,16 +109,61 @@ public class RetarderP400test {
         RetarderP400 truck = new RetarderP400();
         Volvo240 car = new Volvo240();
         truck.lower();
-        truck.load(truck, car);
+        truck.load(car);
         assertFalse(truck.getThe_load().isEmpty());
         assertEquals(truck.getCenterPointy(),car.getCenterPointy());
         assertEquals(truck.getCenterPointx(), car.getCenterPointx());
+        assertTrue(car.isLoaded());
 
         Car last_car = truck.getThe_load().get(truck.getThe_load().size()-1);
         truck.unload();
+        assertFalse(last_car.isLoaded());
         assertTrue(truck.getThe_load().isEmpty());
         assertEquals(truck.getCenterPointx(), last_car.getCenterPointx(),10);
         assertEquals(truck.getCenterPointy(), last_car.getCenterPointy(), 10);
+    }
+
+
+    @Test
+    public void move_tests(){
+        RetarderP400 car = new RetarderP400();
+
+        double old_pos = car.getCenterPointx();
+        car.startEngine();
+        car.move();
+        double output = car.getCenterPointx();
+        assertTrue(old_pos != output);
+
+        double old_pos2 = car.getCenterPointx();
+        car.setDirection(3);
+        car.startEngine();
+        car.move();
+        double output2 = car.getCenterPointx();
+        assertTrue(old_pos2 != output2);
+
+        double old_pos3 = car.getCenterPointx();
+        car.setDirection(3.5);
+        car.startEngine();
+        car.move();
+        double output3 = car.getCenterPointx();
+        assertTrue(old_pos3 != output3);
+
+        double old_pos4 = car.getCenterPointx();
+        car.setDirection(6);
+        car.startEngine();
+        car.move();
+        double output4 = car.getCenterPointx();
+        assertTrue(old_pos4 != output4);
+
+        car.setCurrentSpeed(0);
+        Volvo240 volvo = new Volvo240();
+        car.lower();
+        car.load(volvo);
+        car.raise();
+        car.gas(0.5);
+        car.move();
+        assertEquals(car.getCenterPointx(), volvo.getCenterPointx());
+        assertEquals(car.getCenterPointy(), volvo.getCenterPointy());
     }
 }
 

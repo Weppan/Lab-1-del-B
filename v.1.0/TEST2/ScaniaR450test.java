@@ -1,35 +1,44 @@
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import java.awt.*;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ScaniaR450test {
     @Test
     public void Ramp_tests(){
-        Truck truck = new ScaniaR450();
-        double initial_angle = truck.getPlatformAngle();
-        truck.raise();
-        assertTrue(truck.getPlatformAngle()>initial_angle);
+        ScaniaR450 truck = new ScaniaR450();
 
-        double initial_angle2 = truck.getPlatformAngle();
-        truck.lower();
-        assertTrue(truck.getPlatformAngle()<initial_angle2);
+        truck.decidePlatformAngle(10);
+        assertEquals(10,truck.getPlatformAngle());
 
-        truck.setPlatformAngle(-10);
-        truck.lower();
-        assertEquals(0,truck.getPlatformAngle());
-
-        truck.setPlatformAngle(80);
-        truck.raise();
+        truck.decidePlatformAngle(120);
         assertEquals(70,truck.getPlatformAngle());
 
-        truck.setCurrentSpeed(50);
-        truck.lower();
-        assertEquals("Must be stationary", truck.getPlfrmErrorMsg());
+        truck.decidePlatformAngle(-30);
+        assertEquals(0,truck.getPlatformAngle());
 
-        truck.setCurrentSpeed(30);
-        truck.raise();
-        assertEquals("Must be stationary",truck.getPlfrmErrorMsg());
+//        double initial_angle = truck.getGetPlatformAngle();
+//        truck.setPlatformAngle();
+//        assertTrue(truck.getGetPlatformAngle()>initial_angle);
+//
+//        double initial_angle2 = truck.getGetPlatformAngle();
+//        truck.lower();
+//        assertTrue(truck.getGetPlatformAngle()<initial_angle2);
+//
+//        truck.setGetPlatformAngle(-10);
+//        truck.lower();
+//        assertEquals(0,truck.getGetPlatformAngle());
+//
+//        truck.setGetPlatformAngle(80);
+//        truck.setPlatformAngle();
+//        assertEquals(70,truck.getGetPlatformAngle());
+//
+//        truck.setCurrentSpeed(50);
+//        truck.lower();
+//        assertEquals("Must be stationary", truck.getPlfrmErrorMsg());
+//
+//        truck.setCurrentSpeed(30);
+//        truck.setPlatformAngle();
+//        assertEquals("Must be stationary",truck.getPlfrmErrorMsg());
     }
     @Test
     public void gas_tests(){
