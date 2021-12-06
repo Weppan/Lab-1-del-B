@@ -28,8 +28,9 @@ public class CarController {
     // The frame that represents this instance View of the MVC pattern
     CarView frame;
     // A list of cars, modify if needed
-    ArrayList<Car> cars = new ArrayList<>(); //Får denna vara Static??
-
+    static ArrayList<Car> cars = new ArrayList<>();
+    static ArrayList<Saab95> saabs = new ArrayList<>();
+    static ArrayList<ScaniaR450> scanias = new ArrayList<>();
 
     //methods:
 
@@ -37,15 +38,17 @@ public class CarController {
         // Instance of this class
         CarController cc = new CarController();
 
-//        cc.cars.add(new Volvo240());       default code
-//        Volvo240 volvo = new Volvo240();
-//        cc.cars.add(volvo);
+        cc.cars.add(new Volvo240());
+        Volvo240 volvo = new Volvo240();
+        cc.cars.add(volvo);
         Saab95 saab = new Saab95();
         saab.setCenterPointy(100);      //detta känns dåligt
         cc.cars.add(saab);
-//        ScaniaR450 scania = new ScaniaR450();
-//        scania.setCenterPointy(200);
-//        cc.cars.add(scania);
+        cc.saabs.add(saab);             //Även detta känns dåligt
+        ScaniaR450 scania = new ScaniaR450();
+        scania.setCenterPointy(200);
+        cc.cars.add(scania);
+        cc.scanias.add(scania);
 
 
         // Start a new view and send a reference of self
@@ -79,7 +82,7 @@ public class CarController {
         if(
                 car.getCenterPointx() < 0
                 || car.getCenterPointy() < 0
-                || car.getCenterPointx() > CarView.X
+                || car.getCenterPointx()+100 > CarView.X
                 || car.getCenterPointy() > CarView.Y){
 
             double initialSpeed = car.getCurrentSpeed();
@@ -101,6 +104,21 @@ public class CarController {
         double gas = ((double) amount) / 100;
         for (Car car : cars) {
             car.brake(gas);
+        }
+    }
+    void TurboOn(){
+        for (Saab95 car : saabs) {
+            car.setTurboOn();
+        }
+    }
+    void TurboOff(){
+        for (Saab95 car : saabs) {
+            car.setTurboOff();
+        }
+    }
+    void LowerBed(){
+        for (ScaniaR450 truck : scanias){
+            truck.decidePlatformAngle(10);
         }
     }
 }

@@ -9,6 +9,7 @@ import javax.swing.*;
 
 public class DrawPanel extends JPanel{
 
+
     // Just a single image, TODO: Generalize
     BufferedImage volvoImage;
     BufferedImage saabImage;
@@ -45,7 +46,6 @@ public class DrawPanel extends JPanel{
         {
             ex.printStackTrace();
         }
-
     }
 
     // This method is called each time the panel updates/refreshes/repaints itself
@@ -53,8 +53,15 @@ public class DrawPanel extends JPanel{
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(volvoImage, volvoPoint.x, volvoPoint.y, null); // see javadoc for more info on the parameters
-        g.drawImage(saabImage, saabPoint.x, saabPoint.y, null);
-        g.drawImage(scaniaImage, scaniaPoint.x, scaniaPoint.y, null);
+        BufferedImage Image;
+        for (Car car : CarController.cars) {
+            if (car instanceof Saab95)
+                Image = saabImage;
+            else if (car instanceof Volvo240)
+                Image = volvoImage;
+            else
+                Image = scaniaImage;
+            g.drawImage(Image, (int)Math.round(car.getCenterPointx()), (int)Math.round(car.getCenterPointy()), null); // see javadoc for more info on the parameters
+        }
     }
 }

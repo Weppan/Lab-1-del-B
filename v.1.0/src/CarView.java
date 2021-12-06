@@ -14,8 +14,8 @@ import java.awt.event.ActionListener;
  **/
 
 public class CarView extends JFrame{
-    protected static final int X = 1500;
-    protected static final int Y = 800;
+    protected static final int X = 1000;
+    protected static final int Y = 600;
 
     // The controller member
     CarController carC;
@@ -119,21 +119,21 @@ public class CarView extends JFrame{
         turboOnButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                saab95.setTurboOn();
+                carC.TurboOn();
             }
         });
 
         turboOffButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                saab95.setTurboOff();
+                carC.TurboOff();                                    //nu är det carC. Vi vill ha det saab95.
             }
         });
 
         brakeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.brake(gasAmount);
+                carC.LowerBed();
             }
         });
 
