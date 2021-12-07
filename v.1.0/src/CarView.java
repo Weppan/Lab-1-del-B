@@ -105,10 +105,12 @@ public class CarView extends JFrame{
         // This actionListener is for the gas button only
         // TODO: Create more for each component as necessary
 
-
-
-
-
+        brakeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.brake(gasAmount);
+            }
+        });
         gasButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -130,32 +132,30 @@ public class CarView extends JFrame{
             }
         });
 
-        brakeButton.addActionListener(new ActionListener() {
+        lowerBedButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 carC.LowerBed();
             }
         });
-
-        brakeButton.addActionListener(new ActionListener() {
+        liftBedButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.brake(gasAmount);
+                carC.liftBed();
             }
         });
-
-        brakeButton.addActionListener(new ActionListener() {
+        startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.brake(gasAmount);
+                carC.startAllCars();
             }
         });
-
-
-
-
-
-
+        stopButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.stopAllCars();
+            }
+        });
 
         // Make the frame pack all it's components by respecting the sizes if possible.
         this.pack();

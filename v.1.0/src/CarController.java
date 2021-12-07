@@ -118,7 +118,22 @@ public class CarController {
     }
     void LowerBed(){
         for (ScaniaR450 truck : scanias){
-            truck.decidePlatformAngle(10);
+            truck.decidePlatformAngle(70);
+        }
+    }
+    void liftBed() {
+        for (ScaniaR450 truck : scanias) {
+            truck.decidePlatformAngle(0);
+        }
+    }
+    void startAllCars() {
+        for (Car car : cars) {
+            car.startEngine();
+        }
+    }
+    void stopAllCars() {
+        for (Car car : cars) {
+            car.stopEngine();
         }
     }
 }
