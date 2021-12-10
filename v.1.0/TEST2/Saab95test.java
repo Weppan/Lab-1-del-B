@@ -1,4 +1,4 @@
-import org.junit.jupiter.api.BeforeAll;
+import cars.Saab95;
 import org.junit.jupiter.api.Test;
 
 import java.awt.*;
@@ -125,7 +125,7 @@ public class Saab95test {
         assertEquals(0, centerpointy);
 
         String modelname = car.getModelName();
-        assertSame("Saab95", modelname);
+        assertSame("cars.Saab95", modelname);
     }
     @Test
     public void Saab95_speed_behavior () {

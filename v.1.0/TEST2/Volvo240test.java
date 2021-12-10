@@ -1,4 +1,4 @@
-import org.junit.jupiter.api.BeforeAll;
+import cars.Volvo240;
 import org.junit.jupiter.api.Test;
 
 import java.awt.*;
@@ -121,7 +121,7 @@ public class Volvo240test {
         assertEquals(0, centerpointy);
 
         String modelname = car.getModelName();
-        assertSame("Volvo240", modelname);
+        assertSame("cars.Volvo240", modelname);
 
         car.setColor(Color.black);
         Color clr = car.getColor();

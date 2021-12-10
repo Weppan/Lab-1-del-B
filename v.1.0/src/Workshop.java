@@ -3,7 +3,7 @@ import java.util.ArrayList;
 /** Creates objects that are workshops.
  * @author madel
  * */
-public class Workshop <T extends Car>{
+public class Workshop <T>{
 
 
     private ArrayList<T> cars_in_shop;

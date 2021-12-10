@@ -1,3 +1,5 @@
+import cars.ScaniaR450;
+import cars.Truck;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

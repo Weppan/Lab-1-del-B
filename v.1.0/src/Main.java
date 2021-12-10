@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import cars.*;
 
 public class Main {
 
@@ -37,10 +37,10 @@ public class Main {
         Volvo240 car = new Volvo240();
         Volvo240 car2 = new Volvo240();
 //        userInterface(car);
-       // Saab95 car2 = new Saab95();
-       // Saab95 car3 = new Saab95();
+       // cars.Saab95 car2 = new cars.Saab95();
+       // cars.Saab95 car3 = new cars.Saab95();
 
-        //Workshop<Car, Saab95> repairshop1 = new Workshop<>(car2, car3, 4);
+        //Workshop<cars.Car, cars.Saab95> repairshop1 = new Workshop<>(car2, car3, 4);
 
 
 
@@ -65,7 +65,7 @@ public class Main {
 
 //        String word1 = new String("Hello");
 //        ArrayList<String> strList = new ArrayList<String>();
-//        ArrayList<Car> carList = new ArrayList<>();
+//        ArrayList<cars.Car> carList = new ArrayList<>();
 
 
 

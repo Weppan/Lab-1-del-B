@@ -1,9 +1,7 @@
-import org.junit.jupiter.api.BeforeAll;
+import cars.Car;
+import cars.Saab95;
+import cars.Volvo240;
 import org.junit.jupiter.api.Test;
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 
 import static org.junit.jupiter.api.Assertions.*;
 

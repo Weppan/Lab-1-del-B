@@ -1,3 +1,6 @@
+import cars.Car;
+import cars.RetarderP400;
+import cars.Volvo240;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -69,7 +72,7 @@ public class RetarderP400test {
         String unload_error = truck.getUnloadErrorMsg();
         assertEquals("Can't unload vehicle", unload_error);
 
-        //ArrayList<Car> theLoadList = truck.getThe_load(); Hur gör man detta?
+        //ArrayList<cars.Car> theLoadList = truck.getThe_load(); Hur gör man detta?
         //assertEquals(Collections.EMPTY_LIST,theLoadList);
     }
 
