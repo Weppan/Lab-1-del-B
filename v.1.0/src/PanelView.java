@@ -1,5 +1,6 @@
 import cars.Car;
 import cars.Saab95;
+import cars.ScaniaR450;
 import cars.Volvo240;
 
 import java.awt.*;
@@ -14,20 +15,7 @@ public class PanelView extends JPanel {
 
 
     // Just a single image, TODO: Generalize
-    BufferedImage volvoImage;
-    BufferedImage saabImage;
-    BufferedImage scaniaImage;
-    // To keep track of a singel cars position
-    Point volvoPoint = new Point();
-    Point saabPoint = new Point();
-    Point scaniaPoint = new Point();
-
-    // TODO: Make this genereal for all cars
-//    void moveit(int x, int y){
-//        volvoPoint.x = x;
-//        volvoPoint.y = y;
-//
-//    }
+    BufferedImage defaultImage;
 
     // Initializes the panel and reads the images
     public PanelView(int x, int y) {
@@ -42,9 +30,7 @@ public class PanelView extends JPanel {
 
             // Rememember to rightclick src New -> Package -> name: pics -> MOVE *.jpg to pics.
             // if you are starting in IntelliJ.
-            volvoImage = ImageIO.read(PanelView.class.getResourceAsStream("pics/Volvo240.jpg"));
-            saabImage = ImageIO.read(PanelView.class.getResourceAsStream("pics/Saab95.jpg"));
-            scaniaImage = ImageIO.read(PanelView.class.getResourceAsStream("pics/Scania.jpg"));
+            defaultImage = ImageIO.read(PanelView.class.getResourceAsStream("pics/default.jpg"));
         } catch (IOException ex)
         {
             ex.printStackTrace();
@@ -57,14 +43,15 @@ public class PanelView extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         BufferedImage Image;
+        Image = defaultImage; //defaultImage
         for (Car car : CarApplication.cars) {
-            if (car instanceof Saab95)
-                Image = saabImage;
-            else if (car instanceof Volvo240)
-                Image = volvoImage;
-            else
-                Image = scaniaImage;
+            try {
+                Image = ImageIO.read(PanelView.class.getResourceAsStream("pics/" + car.getClass().getName() + ".jpg"));
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
             g.drawImage(Image, (int)Math.round(car.getCenterPointx()), (int)Math.round(car.getCenterPointy()), null); // see javadoc for more info on the parameters
+
         }
     }
 }

@@ -9,7 +9,7 @@ public class ScaniaR450 extends Truck implements Ibed {
 
     /** Creates a cars.ScaniaR450.*/
     public ScaniaR450(){
-        super(2,250, Color.white, "R-450-LA4x2MEB", 18_000,0,0,0, 0);
+        super(2,250, Color.white, "R-450-LA4x2MEB", 18_000,0,200,0, 0);
     }
 
     /**Decide platform angle between 0 and 70 degrees

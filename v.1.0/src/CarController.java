@@ -13,7 +13,7 @@ import java.awt.event.ActionEvent;
 
 import java.awt.event.ActionListener;
 
-public class CarController implements ActionListener{
+public class CarController{
     ControlView carV;
     public CarController(ControlView cv) {
         this.carV = cv;

@@ -51,7 +51,7 @@ public class ControlView extends JFrame{
         this.setPreferredSize(new Dimension(X,Y));
         this.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
 
-        this.add(CarApplication.drawPanel);
+        this.add(CarApplication.view.drawPanel);
 
 
         SpinnerModel spinnerModel =
@@ -98,12 +98,12 @@ public class ControlView extends JFrame{
         // This actionListener is for the gas button only
         // TODO: Create more for each component as necessary
 
-        brakeButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                carC.brake(gasAmount);
-            }
-        });
+//        brakeButton.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                carC.brake(gasAmount);
+//            }
+//        });
 //        gasButton.addActionListener(new ActionListener() {
 //            @Override
 //            public void actionPerformed(ActionEvent e) {

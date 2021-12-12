@@ -6,7 +6,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Views{
+    protected static final int X = 1000;
+    protected static final int Y = 600;
 
+    PanelView drawPanel = new PanelView(X, Y-240);
+
+    ControlView frame = new ControlView("CarSim 1.0");
+
+    public Views() {
+        this.drawPanel = new PanelView(X, Y-240);
+        this.frame = new ControlView("CarSim 1.0");
+    }
 }
 //    // This actionListener is for the gas button only
 //    // TODO: Create more for each component as necessary

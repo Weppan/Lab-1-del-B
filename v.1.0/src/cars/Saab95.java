@@ -11,7 +11,7 @@ public class Saab95 extends Car implements Iturbo {
 
     /** Creates a cars.Saab95.*/
     public Saab95(){
-        super(2,125, Color.red, "cars.Saab95", 1_495, 0,0,0);
+        super(2,125, Color.red, "cars.Saab95", 1_495, 0,100,0);
 	    turboOn = false;
     }
 
