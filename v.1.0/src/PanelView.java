@@ -33,7 +33,7 @@ public class PanelView extends JPanel {
             // Rememember to rightclick src New -> Package -> name: pics -> MOVE *.jpg to pics.
             // if you are starting in IntelliJ.
             defaultImage = ImageIO.read(PanelView.class.getResourceAsStream("pics/cars.default.jpg"));
-           // Image = ImageIO.read(PanelView.class.getResourceAsStream("pics/" + car.getClass().getName() + ".jpg"));
+
 
         } catch (IOException ex)
         {
@@ -50,9 +50,9 @@ public class PanelView extends JPanel {
         BufferedImage Image;
         Image = defaultImage; //defaultImage
         for (Car car : model.getCars()) {
-            String carName = car.getModelName();
+            String fileName = new String("pics/" +car.getClass().getName()+ ".jpg");
             try {
-                Image = ImageIO.read(PanelView.class.getResourceAsStream("pics/cars.Saab95.jpg"));
+                Image = ImageIO.read(PanelView.class.getResourceAsStream(fileName));
             } catch (IOException ex) {
                 ex.printStackTrace();
             }

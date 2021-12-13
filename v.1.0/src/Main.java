@@ -48,6 +48,9 @@ public class Main {
 
         //System.out.println(("\n"pics/" + car.getClass().getName() + ".jpg""));
 
+        String fileName = new String("pics/" +car.getClass().getName()+ ".jpg");
+
+        System.out.println(fileName);
 
         RetarderP400 platformer = new RetarderP400();
 
