@@ -13,10 +13,13 @@ import java.awt.event.ActionListener;
  * TODO: Write more actionListeners and wire the rest of the buttons
  **/
 
-public class ControlView extends JComponent {
+public class ControlView {
+    private CarModel model;
+    
     protected static final int X = 1000;
     protected static final int Y = 600;
-
+    
+    
     // The controller member
     //CarController carC;
 
@@ -24,9 +27,10 @@ public class ControlView extends JComponent {
 
     JPanel gasPanel = new JPanel();
     JSpinner gasSpinner = new JSpinner();
-    int gasAmount = 0;
+    int spinnerAmount = 0;
     JLabel gasLabel = new JLabel("Amount of gas");
 
+    
     JButton gasButton = new JButton("Gas");
     JButton brakeButton = new JButton("Brake");
     JButton turboOnButton = new JButton("Saab Turbo on");
@@ -38,9 +42,10 @@ public class ControlView extends JComponent {
     JButton stopButton = new JButton("Stop all cars");
     //ActionListener actionListener = new CarController();
     // Constructor
-    public ControlView(){
+    public ControlView(CarModel model){
         //this.carC = cc;
         initComponents();
+        this.model = model;
     }
 
     // Sets everything in place and fits everything
@@ -55,14 +60,13 @@ public class ControlView extends JComponent {
         gasSpinner = new JSpinner(spinnerModel);
         gasSpinner.addChangeListener(new ChangeListener() {
             public void stateChanged(ChangeEvent e) {
-                gasAmount = (int) ((JSpinner)e.getSource()).getValue();
+                spinnerAmount = (int) ((JSpinner)e.getSource()).getValue();
             }
         });
         gasPanel.setLayout(new BorderLayout());
         gasPanel.add(gasLabel, BorderLayout.PAGE_START);
         gasPanel.add(gasSpinner, BorderLayout.PAGE_END);
 
-        add(gasPanel);
 
         controlPanel.setLayout(new GridLayout(2,4));
 
@@ -75,19 +79,107 @@ public class ControlView extends JComponent {
         controlPanel.setPreferredSize(new Dimension((X/2)+4, 200));
         controlPanel.setBackground(Color.CYAN);
 
-        add(controlPanel);
 
         startButton.setBackground(Color.blue);
         startButton.setForeground(Color.green);
         startButton.setPreferredSize(new Dimension(X/5-15,200));
 
-        add(startButton);
 
         stopButton.setBackground(Color.red);
         stopButton.setForeground(Color.black);
         stopButton.setPreferredSize(new Dimension(X/5-15,200));
 
-        add(stopButton);
+
+
+
+
+        gasButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                model.gasAll(spinnerAmount);
+            }
+        });
+
+        brakeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                model.brakeAll(spinnerAmount);
+
+            }
+        }); // Flytta logik till model. Flytta actionlistener till view (Då är knappar och listener på samma ställe)
+
+
+        turboOnButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                model.turboOn();
+            }
+        });
+
+        turboOffButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                model.turboOff();
+            }
+        });
+
+        lowerBedButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                model.lowerTruckBed();
+
+            }
+        });
+        liftBedButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                model.liftTruckBed();
+            }
+        });
+
+        stopButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                model.stopAllCars();
+
+            }
+        });
+
+        startButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                model.startAllCars();
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // This actionListener is for the gas button only
         // TODO: Create more for each component as necessary
@@ -143,5 +235,12 @@ public class ControlView extends JComponent {
 //                carC.stopAllCars();
 //            }
 //        });
+    }
+
+    public void addToFrame(JFrame frame) {
+        frame.add(gasPanel);
+        frame.add(controlPanel);
+        frame.add(startButton);
+        frame.add(stopButton);
     }
 }

@@ -1,5 +1,8 @@
 import cars.*;
 
+import javax.imageio.ImageIO;
+import java.io.IOException;
+
 public class Main {
 
     public void userInterface(Movable moveable) {
@@ -43,13 +46,7 @@ public class Main {
         //Workshop<cars.Car, cars.Saab95> repairshop1 = new Workshop<>(car2, car3, 4);
 
 
-
-
-
-
-
-
-
+        //System.out.println(("\n"pics/" + car.getClass().getName() + ".jpg""));
 
 
         RetarderP400 platformer = new RetarderP400();

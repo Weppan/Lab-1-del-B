@@ -1,5 +1,6 @@
 import cars.*;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -24,9 +25,15 @@ public class CarApplication {
 
        CarModel model = new CarModel();
        model.carUniverse();
-       Views view = new Views();
-       CarController cc = new CarController(view, model); //view.drawpanel
-        TimerListener timer = new TimerListener(model);
+
+        ControlView controlView = new ControlView(model);
+       Views view = new Views(model, controlView);
+       //CarController cc = new CarController(view, model); //view.drawpanel
+
+//        controlView.addToFrame(view);
+//        view.repaint();
+        final int delay = 50;
+        Timer timer = new Timer(delay, new TimerListener(model, view));
 
 
 
@@ -60,14 +67,16 @@ public class CarApplication {
         //frame = new ControlView("CarSim 1.0");
 
         // Start the timer
-        model.start();
+        timer.start();
     }
 
     static private class TimerListener implements ActionListener {
         private CarModel model;
+        private Views view;
 
-        public TimerListener(CarModel model) {
+        public TimerListener(CarModel model, Views view) {
             this.model = model;
+            this.view = view;
         }
 
         public void actionPerformed(ActionEvent e) {

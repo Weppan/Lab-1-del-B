@@ -9,14 +9,17 @@ public class Views extends JFrame {
 
     PanelView drawPanel;
 
-    public Views() {
+
+
+    public Views(CarModel model, ControlView cv) {
         this.setTitle("CarSim 1.0");
         this.setPreferredSize(new Dimension(X,Y));
         this.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
 
 
-        this.drawPanel = new PanelView(X, Y-240);
+        this.drawPanel = new PanelView(X, Y-240, model);
         this.add(drawPanel);
+        cv.addToFrame(this);
 
         // Make the frame pack all it's components by respecting the sizes if possible.
         this.pack();
