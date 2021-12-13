@@ -12,18 +12,20 @@ import cars.Iturbo;
 import java.awt.event.ActionEvent;
 
 import java.awt.event.ActionListener;
+import java.util.Set;
 
 public class CarController{
-    ControlView carV;
-    public CarController(ControlView cv) {
-        this.carV = cv;
+    private CarModel model;
+    private ControlView cv;
+
+    public CarController(Views view, CarModel model) {
+        cv = new ControlView();
+        view.add(cv);
+
         cv.gasButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                double gas = ((double) cv.gasAmount) / 100;
-                for (Car car : CarApplication.cars) {
-                    car.gas(gas);
-                }
+                model.gasAll(cv.gasAmount);
             }
         });
 
@@ -31,17 +33,14 @@ public class CarController{
         cv.brakeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                double gas = ((double) cv.gasAmount) / 100;
-                for (Car car : CarApplication.cars) {
-                    car.brake(gas);
+                    model.brakeAll(cv);
                 }
-            }
-        });
+        }); // Flytta logik till model. Flytta actionlistener till view (Då är knappar och listener på samma ställe)
 
         cv.turboOnButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                for (Car car : CarApplication.cars) {
+                for (Car car : model.getCars()) {
                     if (car instanceof Iturbo)
                         ((Iturbo) car).setTurboOn();
                 }
@@ -51,7 +50,7 @@ public class CarController{
         cv.turboOffButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                for (Car car : CarApplication.cars) {
+                for (Car car : model.getCars()) {
                     if (car instanceof Iturbo)
                         ((Iturbo) car).setTurboOff();
                 }
@@ -61,7 +60,7 @@ public class CarController{
         cv.lowerBedButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                for (Car truck : CarApplication.cars) {
+                for (Car truck : model.getCars()) {
                     if (truck instanceof Ibed)
                         ((Ibed) truck).decidePlatformAngle(0);
                 }
@@ -70,7 +69,7 @@ public class CarController{
         cv.liftBedButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                for (Car truck : CarApplication.cars) {
+                for (Car truck : model.getCars()) {
                     if (truck instanceof Ibed)
                         ((Ibed) truck).decidePlatformAngle(0);
                 }
@@ -80,7 +79,7 @@ public class CarController{
         cv.stopButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                for (Car car : CarApplication.cars) {
+                for (Car car : model.getCars()) {
                     car.stopEngine();
                 }
             }
@@ -89,7 +88,7 @@ public class CarController{
         cv.startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                for (Car car : CarApplication.cars) {
+                for (Car car : model.getCars()) {
                     car.startEngine();
                 }
             }

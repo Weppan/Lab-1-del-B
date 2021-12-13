@@ -41,10 +41,11 @@ public class PanelView extends JPanel {
     // TODO: Change to suit your needs.
     @Override
     protected void paintComponent(Graphics g) {
+
         super.paintComponent(g);
         BufferedImage Image;
         Image = defaultImage; //defaultImage
-        for (Car car : CarApplication.cars) {
+        for (Car car : getCars()) {
             try {
                 Image = ImageIO.read(PanelView.class.getResourceAsStream("pics/" + car.getClass().getName() + ".jpg"));
             } catch (IOException ex) {

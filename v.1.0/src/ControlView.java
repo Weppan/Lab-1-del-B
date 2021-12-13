@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
  * TODO: Write more actionListeners and wire the rest of the buttons
  **/
 
-public class ControlView extends JFrame{
+public class ControlView extends JComponent {
     protected static final int X = 1000;
     protected static final int Y = 600;
 
@@ -38,21 +38,14 @@ public class ControlView extends JFrame{
     JButton stopButton = new JButton("Stop all cars");
     //ActionListener actionListener = new CarController();
     // Constructor
-    public ControlView(String framename){
+    public ControlView(){
         //this.carC = cc;
-        initComponents(framename);
+        initComponents();
     }
 
     // Sets everything in place and fits everything
     // TODO: Take a good look and make sure you understand how these methods and components work
-    private void initComponents(String title) {
-
-        this.setTitle(title);
-        this.setPreferredSize(new Dimension(X,Y));
-        this.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
-
-        this.add(CarApplication.view.drawPanel);
-
+    private void initComponents() {
 
         SpinnerModel spinnerModel =
                 new SpinnerNumberModel(0, //initial value
@@ -69,7 +62,7 @@ public class ControlView extends JFrame{
         gasPanel.add(gasLabel, BorderLayout.PAGE_START);
         gasPanel.add(gasSpinner, BorderLayout.PAGE_END);
 
-        this.add(gasPanel);
+        add(gasPanel);
 
         controlPanel.setLayout(new GridLayout(2,4));
 
@@ -80,20 +73,21 @@ public class ControlView extends JFrame{
         controlPanel.add(turboOffButton, 4);
         controlPanel.add(lowerBedButton, 5);
         controlPanel.setPreferredSize(new Dimension((X/2)+4, 200));
-        this.add(controlPanel);
         controlPanel.setBackground(Color.CYAN);
 
+        add(controlPanel);
 
         startButton.setBackground(Color.blue);
         startButton.setForeground(Color.green);
         startButton.setPreferredSize(new Dimension(X/5-15,200));
-        this.add(startButton);
 
+        add(startButton);
 
         stopButton.setBackground(Color.red);
         stopButton.setForeground(Color.black);
         stopButton.setPreferredSize(new Dimension(X/5-15,200));
-        this.add(stopButton);
+
+        add(stopButton);
 
         // This actionListener is for the gas button only
         // TODO: Create more for each component as necessary
@@ -149,17 +143,5 @@ public class ControlView extends JFrame{
 //                carC.stopAllCars();
 //            }
 //        });
-
-        // Make the frame pack all it's components by respecting the sizes if possible.
-        this.pack();
-
-        // Get the computer screen resolution
-        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        // Center the frame
-        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
-        // Make the frame visible
-        this.setVisible(true);
-        // Make sure the frame exits when "x" is pressed
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }
