@@ -1,9 +1,11 @@
+import cars.Car;
+
 import java.util.ArrayList;
 
 /** Creates objects that are workshops.
  * @author madel
  * */
-public class Workshop <T>{
+public class Workshop <T extends Car>{
 
 
     private ArrayList<T> cars_in_shop;
